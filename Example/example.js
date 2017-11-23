@@ -18,7 +18,7 @@ class SettingsListExample extends Component {
   constructor(){
     super();
     this.onValueChange = this.onValueChange.bind(this);
-    this.state = {switchValue: false};
+    this.state = {switchValue: false, stages: 20};
   }
 
   render() {
@@ -53,6 +53,13 @@ class SettingsListExample extends Component {
             <SettingsList.Item titleInfo='Some Information' hasNavArrow={false} title='Information Example'/>
             <SettingsList.Item title='Settings 1'/>
             <SettingsList.Item title='Settings 2'/>
+            <SettingsList.Item
+              id="stages"
+              title='stages'
+              isEditable={true}
+              value={this.state.stages.toString()}
+              onTextChange={(text) => this.setState({stages: text})} 
+            />
           </SettingsList>
         </View>
       </View>
