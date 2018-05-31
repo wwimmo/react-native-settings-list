@@ -172,7 +172,7 @@ class SettingsList extends React.Component {
         case 'Bottom' : border = {borderTopWidth:1, borderColor: this.props.borderColor}; break;
       }
     } else {
-      border = index === max-1 ? {borderWidth:0} : {borderBottomWidth:1, borderColor: this.props.borderColor};
+      border = index === max-1 ? {borderWidth:0} : {borderBottomWidth: StyleSheet.hairlineWidth, borderColor: this.props.borderColor};
     }
 
     let titleInfoPosition = item.titleInfoPosition ? item.titleInfoPosition : this.props.defaultTitleInfoPosition;
