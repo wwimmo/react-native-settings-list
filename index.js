@@ -263,13 +263,7 @@ class SettingsList extends React.Component {
         >
           {item.icon}
           {item.isAuth ? (
-            <View
-              style={
-                item.titleBoxStyle
-                  ? item.titleBoxStyle
-                  : [styles.titleBox, border]
-              }
-            >
+            <View style={[styles.titleBox, border, item.titleBoxStyle || {}]}>
               <View
                 style={{ paddingLeft: 5, flexDirection: "column", flex: 1 }}
               >
@@ -304,19 +298,16 @@ class SettingsList extends React.Component {
             </View>
           ) : (
             <View
-              style={
-                item.titleBoxStyle
-                  ? item.titleBoxStyle
-                  : [
-                      styles.titleBox,
-                      border,
-                      {
-                        minHeight: item.itemWidth
-                          ? item.itemWidth
-                          : this.props.defaultItemSize
-                      }
-                    ]
-              }
+              style={[
+                styles.titleBox,
+                border,
+                {
+                  minHeight: item.itemWidth
+                    ? item.itemWidth
+                    : this.props.defaultItemSize
+                },
+                item.titleBoxStyle || {}
+              ]}
             >
               {titleInfoPosition === "Bottom" ? (
                 <View
