@@ -41,7 +41,7 @@ function getNativeButton(props) {
                 ref={props.ref}
                 accessible={props.accessible}
             >
-                <View>{props.children}</View>
+                {props.children}
             </TouchableNativeFeedback>
         );
     } else {
@@ -278,6 +278,7 @@ class SettingsList extends React.Component {
                 onPress={item.onPress}
                 onLongPress={item.onLongPress}
                 ref={item.itemRef}
+                androidRippleColor={item.underlayColor}
             >
                 <View
                     style={
