@@ -6,7 +6,6 @@ import createReactClass from "create-react-class";
 
 import {
     View,
-    TouchableHighlight,
     TouchableOpacity,
     TouchableNativeFeedback,
     Text,
@@ -15,7 +14,8 @@ import {
     TextInput,
     Switch,
     Image,
-    ViewPropTypes
+    ViewPropTypes,
+    Platform
 } from "react-native";
 
 const ARROW_ICON = require("./img/icon-arrow-settings.png");
