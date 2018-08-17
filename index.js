@@ -205,7 +205,7 @@ class SettingsList extends React.Component {
   _itemView(item, index, max) {
     var border;
 
-    if (item.type && item.type.displayName) {
+    if (item.type) {
       return item;
     }
 
