@@ -1,9 +1,9 @@
 # react-native-settings-list
 ---
-A clean and highly customizable React Native implementation of a list of settings for a settings page.<a name='top'/>
+A clean and highly customizable React Native implementation of a list of settings for a settings page. Forked.
 
-[![NPM Version](https://img.shields.io/npm/v/react-native-settings-list.svg?style=flat)](https://www.npmjs.com/package/react-native-settings-list)
-[![NPM Downloads](https://img.shields.io/npm/dm/react-native-settings-list.svg?style=flat)](https://www.npmjs.com/package/react-native-settings-list)
+
+
 
 ## Quick Access
 * <a href='#install'>Installation</a>
@@ -22,9 +22,14 @@ A clean and highly customizable React Native implementation of a list of setting
 ---
 Install the module with:
 
+```
+yarn add https://github.com/creambyemute/react-native-settings-list.git
+```
+
+or
 
 ```
-npm install react-native-settings-list --save
+npm install https://github.com/creambyemute/react-native-settings-list.git --save
 ```
 ## <a name='usage'>Usage</a>
 ---
@@ -38,6 +43,8 @@ import SettingsList from 'react-native-settings-list';
 ###### <a href='#top'>Top</a>
 
 ## <a name='#new'>New changes/additions</a>
+* Removed TouchableHighlight, added TouchableOpacity for iOS/UWP and TouchableNativeFeedback for Android
+* Merged all open pull requests from original repository (hairlinewidth broders, no border if no items in group etc)
 * Added `textInputProps` passed to \<SettingsList.Item> to set other options such as `secureEntry` or `autoCapitalize`
 * Ability for an authorization-type component [example updated to show a practical use]
  * Allows for complete customization of the TextInput by passing into the two props authPropsUser and authPassPW (overwrites defaults
