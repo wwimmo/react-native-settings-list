@@ -160,6 +160,7 @@ class SettingsList extends React.Component {
           placeholder={item.placeholder}
           onChangeText={text => item.onTextChange(text)}
           value={item.value}
+          {...item.textInputProps}
         />
       ) : null
     ];
@@ -328,7 +329,7 @@ class SettingsList extends React.Component {
                   }}
                 >
                   {item.isEditable
-                    ? this._itemEditableBlock(item, inde, "Bottom")
+                    ? this._itemEditableBlock(item, index, "Bottom")
                     : this._itemTitleBlock(item, index, "Bottom")}
                 </View>
               ) : item.isEditable ? (
