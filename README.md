@@ -1,3 +1,12 @@
+# react-native-settings-list Fork
+---
+
+Forked version of https://github.com/evetstech/react-native-settings-list as original is unmaintained.
+
+Changes:
+- Merged all open Pull-Requests
+- Replaced TouchableHighlight with TouchableNativeFeedback (Android) and TouchableOpacity (iOS, UWP)
+
 # react-native-settings-list
 ---
 A clean and highly customizable React Native implementation of a list of settings for a settings page. Forked.
@@ -67,30 +76,30 @@ Feel free to do pull requests if a certain feature you want is missing.  I accep
 ### <a name='sl'>\<SettingsList></a>
 The following props are used:
 
-| Name              | Description                                    | Type                   |
-|-------------------|------------------------------------------------|------------------------|
-| backgroundColor   | Sets default background color for all children | React.PropTypes.string |
-| borderColor       | Sets default border color for all children     | React.PropTypes.string |
-| defaultItemSize   | Sets default width for all children            | React.PropTypes.number |
-| underlayColor     | Sets default underlayColor for all children    | React.PropTypes.string |
-| defaultTitleStyle | Sets default style for all children's titles   | React.PropTypes.string |
-| defaultAllowFontScaling | Sets default allow font scaling for all children   | React.PropTypes.bool |
+| Name                    | Description                                      | Type                   |
+| ----------------------- | ------------------------------------------------ | ---------------------- |
+| backgroundColor         | Sets default background color for all children   | React.PropTypes.string |
+| borderColor             | Sets default border color for all children       | React.PropTypes.string |
+| defaultItemSize         | Sets default width for all children              | React.PropTypes.number |
+| underlayColor           | Sets default underlayColor for all children      | React.PropTypes.string |
+| defaultTitleStyle       | Sets default style for all children's titles     | React.PropTypes.string |
+| defaultAllowFontScaling | Sets default allow font scaling for all children | React.PropTypes.bool   |
 
 ### <a name='slh'>\<SettingsList.Header></a>
 The following props are used:
 
-| Name        | Description                             | Type                   |
-|-------------|-----------------------------------------|------------------------|
-| headerText  | Text for the header                     | React.PropTypes.string |
-| headerStyle | Sets border color for the settings list | Text.propTypes.style   |
-| allowFontScaling | Sets  allow font scaling | React.PropTypes.bool |
-| headerRef   | Sets a `ref` on the header component    | React.PropTypes.func   |
+| Name             | Description                             | Type                   |
+| ---------------- | --------------------------------------- | ---------------------- |
+| headerText       | Text for the header                     | React.PropTypes.string |
+| headerStyle      | Sets border color for the settings list | Text.propTypes.style   |
+| allowFontScaling | Sets  allow font scaling                | React.PropTypes.bool   |
+| headerRef        | Sets a `ref` on the header component    | React.PropTypes.func   |
 
 ### <a name='sli'>\<SettingsList.Item></a>
 The following props are used:
 
 | Name                | Description                                                                                              | Type                   |
-|---------------------|----------------------------------------------------------------------------------------------------------|------------------------|
+| ------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------- |
 | title               | Text for the item                                                                                        | React.PropTypes.string |
 | titleStyle          | Text Style                                                                                               | Text.propTypes.style   |
 | icon                | A component for the icon.  Doesn't need to be an image                                                   | React.PropTypes.node   |
@@ -109,7 +118,7 @@ The following props are used:
 | isAuth              | Sets item as an authorization item                                                                       | React.PropTypes.bool   |
 | authPropsUser       | Changes the props for the first TextInput component; overwrites default                                  | React.PropTypes.node   |
 | authPropsPW         | Changes the props for the second TextInput component; overwrites default                                 | React.PropTypes.node   |
-| allowFontScaling | Sets  allow font scaling | React.PropTypes.bool |
+| allowFontScaling    | Sets  allow font scaling                                                                                 | React.PropTypes.bool   |
 | itemRef             | Sets a `ref` on the TouchableHighlight that SettingsList.Item renders to                                 | React.PropTypes.func   |
 | textInputProps      | RN text input props                                                                                      | React.PropTypes.object |
 
