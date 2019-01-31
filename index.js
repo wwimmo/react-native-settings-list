@@ -37,7 +37,6 @@ function getNativeButton(props) {
                 background={androidRippleStyle}
                 useForeground={props.androidRippleUseForeground}
                 accessible={false}
-                key={props.itemIndex}
                 ref={props.ref}
                 accessible={props.accessible}
             >
@@ -50,7 +49,6 @@ function getNativeButton(props) {
                 onPress={props.onPress}
                 onLongPress={props.onLongPress}
                 accessible={false}
-                key={props.itemIndex}
                 ref={props.ref}
                 accessible={props.accessible}
             >
@@ -268,7 +266,7 @@ class SettingsList extends React.Component {
         return (
             <Touchable
                 accessible={false}
-                itemIndex={"item_" + index}
+                key={"item_" + index}
                 onPress={item.onPress}
                 onLongPress={item.onLongPress}
                 ref={item.itemRef}
