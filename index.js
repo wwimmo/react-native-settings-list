@@ -18,8 +18,6 @@ import {
     Platform
 } from "react-native";
 
-const hairlineWidth = Platform.OS === "windows" ? 1 : StyleSheet.hairlineWidth;
-
 const ARROW_ICON = require("./img/icon-arrow-settings.png");
 
 const Touchable = (props) => {
@@ -39,7 +37,7 @@ function getNativeButton(props) {
                 background={androidRippleStyle}
                 useForeground={props.androidRippleUseForeground}
                 accessible={false}
-                key={props.key}
+                key={props.itemIndex}
                 ref={props.ref}
                 accessible={props.accessible}
             >
@@ -52,7 +50,7 @@ function getNativeButton(props) {
                 onPress={props.onPress}
                 onLongPress={props.onLongPress}
                 accessible={false}
-                key={props.key}
+                key={props.itemIndex}
                 ref={props.ref}
                 accessible={props.accessible}
             >
@@ -148,8 +146,8 @@ class SettingsList extends React.Component {
                     {group.items.length ? (
                         <View
                             style={{
-                                borderTopWidth: hairlineWidth,
-                                borderBottomWidth: hairlineWidth,
+                                borderTopWidth: StyleSheet.hairlineWidth,
+                                borderBottomWidth: StyleSheet.hairlineWidth,
                                 borderColor: this.props.borderColor
                             }}
                         >
@@ -166,8 +164,8 @@ class SettingsList extends React.Component {
                 items = (
                     <View
                         style={{
-                            borderTopWidth: hairlineWidth,
-                            borderBottomWidth: hairlineWidth,
+                            borderTopWidth: StyleSheet.hairlineWidth,
+                            borderBottomWidth: StyleSheet.hairlineWidth,
                             borderColor: this.props.borderColor
                         }}
                     >
@@ -247,16 +245,10 @@ class SettingsList extends React.Component {
         if (item.borderHide) {
             switch (item.borderHide) {
                 case "Top":
-                    border = {
-                        borderBottomWidth: hairlineWidth,
-                        borderColor: this.props.borderColor
-                    };
+                    border = { borderBottomWidth: StyleSheet.hairlineWidth, borderColor: this.props.borderColor };
                     break;
                 case "Bottom":
-                    border = {
-                        borderTopWidth: hairlineWidth,
-                        borderColor: this.props.borderColor
-                    };
+                    border = { borderTopWidth: StyleSheet.hairlineWidth, borderColor: this.props.borderColor };
                     break;
             }
         } else {
@@ -264,9 +256,9 @@ class SettingsList extends React.Component {
                 index === max - 1
                     ? { borderWidth: 0 }
                     : {
-                        borderBottomWidth: hairlineWidth,
-                        borderColor: this.props.borderColor
-                    };
+                          borderBottomWidth: StyleSheet.hairlineWidth,
+                          borderColor: this.props.borderColor
+                      };
         }
 
         let titleInfoPosition = item.titleInfoPosition ? item.titleInfoPosition : this.props.defaultTitleInfoPosition;
@@ -276,7 +268,7 @@ class SettingsList extends React.Component {
         return (
             <Touchable
                 accessible={false}
-                key={"item_" + index}
+                itemIndex={"item_" + index}
                 onPress={item.onPress}
                 onLongPress={item.onLongPress}
                 ref={item.itemRef}
@@ -287,13 +279,13 @@ class SettingsList extends React.Component {
                         item.itemBoxStyle
                             ? item.itemBoxStyle
                             : [
-                                styles.itemBox,
-                                {
-                                    backgroundColor: item.backgroundColor
-                                        ? item.backgroundColor
-                                        : this.props.backgroundColor
-                                }
-                            ]
+                                  styles.itemBox,
+                                  {
+                                      backgroundColor: item.backgroundColor
+                                          ? item.backgroundColor
+                                          : this.props.backgroundColor
+                                  }
+                              ]
                     }
                 >
                     {item.icon}
@@ -302,17 +294,13 @@ class SettingsList extends React.Component {
                             <View style={{ paddingLeft: 5, flexDirection: "column", flex: 1 }}>
                                 <View
                                     style={{
-                                        borderBottomWidth: hairlineWidth,
+                                        borderBottomWidth: StyleSheet.hairlineWidth,
                                         borderColor: this.props.borderColor
                                     }}
                                 >
                                     <TextInput
                                         onSubmitEditing={() => this.passwordInput.focus()}
-                                        style={{
-                                            flex: 1,
-                                            height: 30,
-                                            borderBottomWidth: hairlineWidth
-                                        }}
+                                        style={{ flex: 1, height: 30, borderBottomWidth: StyleSheet.hairlineWidth }}
                                         placeholder="username"
                                         allowFontScaling={allowFontScaling}
                                         {...item.authPropsUser}
@@ -333,46 +321,38 @@ class SettingsList extends React.Component {
                             </View>
                         </View>
                     ) : (
-                            <View
-                                style={[
-                                    styles.titleBox,
-                                    border,
-                                    {
-                                        minHeight: item.itemWidth ? item.itemWidth : this.props.defaultItemSize
-                                    },
-                                    item.titleBoxStyle || {}
-                                ]}
-                            >
-                                {titleInfoPosition === "Bottom" ? (
-                                    <View
-                                        style={{
-                                            flexDirection: "column",
-                                            flex: 1,
-                                            justifyContent: "center"
-                                        }}
-                                    >
-                                        {item.isEditable
-                                            ? this._itemEditableBlock(item, index, "Bottom")
-                                            : this._itemTitleBlock(item, index, "Bottom")}
-                                    </View>
-                                ) : item.isEditable ? (
-                                    this._itemEditableBlock(item, index)
-                                ) : (
-                                            this._itemTitleBlock(item, index)
-                                        )}
+                        <View
+                            style={[
+                                styles.titleBox,
+                                border,
+                                { minHeight: item.itemWidth ? item.itemWidth : this.props.defaultItemSize },
+                                item.titleBoxStyle || {}
+                            ]}
+                        >
+                            {titleInfoPosition === "Bottom" ? (
+                                <View style={{ flexDirection: "column", flex: 1, justifyContent: "center" }}>
+                                    {item.isEditable
+                                        ? this._itemEditableBlock(item, index, "Bottom")
+                                        : this._itemTitleBlock(item, index, "Bottom")}
+                                </View>
+                            ) : item.isEditable ? (
+                                this._itemEditableBlock(item, index)
+                            ) : (
+                                this._itemTitleBlock(item, index)
+                            )}
 
-                                {item.rightSideContent ? item.rightSideContent : null}
-                                {item.hasSwitch ? (
-                                    <Switch
-                                        {...item.switchProps}
-                                        style={styles.rightSide}
-                                        onValueChange={(value) => item.switchOnValueChange(value)}
-                                        value={item.switchState}
-                                    />
-                                ) : null}
-                                {this.itemArrowIcon(item)}
-                            </View>
-                        )}
+                            {item.rightSideContent ? item.rightSideContent : null}
+                            {item.hasSwitch ? (
+                                <Switch
+                                    {...item.switchProps}
+                                    style={styles.rightSide}
+                                    onValueChange={(value) => item.switchOnValueChange(value)}
+                                    value={item.switchState}
+                                />
+                            ) : null}
+                            {this.itemArrowIcon(item)}
+                        </View>
+                    )}
                 </View>
             </Touchable>
         );
